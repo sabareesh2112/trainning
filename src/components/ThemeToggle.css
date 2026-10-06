@@ -1,0 +1,198 @@
+/* Cosmic Lens Warm Orange Day/Night Sparkle Switch */
+
+.cosmic-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cosmic-toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.cosmic-toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Dark Mode Track (Night/Space) */
+.cosmic-toggle-switch.is-dark .cosmic-toggle-slider {
+  background: #0D0A08;
+  border: 1px solid rgba(234, 145, 98, 0.35);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 0 12px rgba(234, 145, 98, 0.15);
+}
+
+/* Light Mode Track (Day/Solar) */
+.cosmic-toggle-switch.is-light .cosmic-toggle-slider {
+  background: #EFE4DD;
+  border: 1px solid rgba(201, 111, 69, 0.35);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 0 0 10px rgba(201, 111, 69, 0.15);
+}
+
+/* Hover effects */
+.cosmic-toggle-switch:hover .cosmic-toggle-slider {
+  border-color: #EA9162;
+  box-shadow: 0 0 14px rgba(234, 145, 98, 0.35);
+}
+
+/* The Sliding Circular Knob */
+.cosmic-toggle-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Dark Mode Knob Position & Style (Moon/Stellar Sphere) */
+.cosmic-toggle-switch.is-dark .cosmic-toggle-knob {
+  transform: translateX(30px) rotate(360deg);
+  background: #EA9162;
+  box-shadow: 0 0 12px rgba(234, 145, 98, 0.55), inset -2px -2px 4px rgba(65, 64, 61, 0.4);
+}
+
+/* Light Mode Knob Position & Style (Sun) */
+.cosmic-toggle-switch.is-light .cosmic-toggle-knob {
+  transform: translateX(0px) rotate(0deg);
+  background: #C96F45;
+  box-shadow: 0 0 12px rgba(201, 111, 69, 0.45), inset 2px 2px 4px rgba(255, 247, 242, 0.6);
+}
+
+/* Icons inside Knob */
+.cosmic-toggle-icon {
+  width: 13px;
+  height: 13px;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.cosmic-toggle-switch.is-dark .cosmic-toggle-icon.moon {
+  color: #080706;
+  opacity: 1;
+}
+
+.cosmic-toggle-switch.is-light .cosmic-toggle-icon.sun {
+  color: #FFF9F5;
+  opacity: 1;
+}
+
+/* Background Sparkle Particles in Dark Mode */
+.cosmic-toggle-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.cosmic-toggle-switch.is-light .cosmic-toggle-sparkles {
+  opacity: 0;
+}
+
+.cosmic-toggle-switch.is-dark .cosmic-toggle-sparkles {
+  opacity: 1;
+}
+
+.cosmic-toggle-star {
+  position: absolute;
+  background: #FFD2BE;
+  border-radius: 50%;
+  animation: cosmicStarPulse 2s infinite ease-in-out;
+}
+
+.cosmic-toggle-star.s1 {
+  width: 2.5px;
+  height: 2.5px;
+  top: 7px;
+  left: 9px;
+  animation-delay: 0s;
+}
+
+.cosmic-toggle-star.s2 {
+  width: 2px;
+  height: 2px;
+  bottom: 8px;
+  left: 17px;
+  animation-delay: 0.6s;
+}
+
+.cosmic-toggle-star.s3 {
+  width: 3px;
+  height: 3px;
+  top: 13px;
+  left: 13px;
+  background: #EA9162;
+  box-shadow: 0 0 4px #EA9162;
+  animation-delay: 1.2s;
+}
+
+.cosmic-toggle-star.s4 {
+  width: 2px;
+  height: 2px;
+  top: 6px;
+  left: 23px;
+  animation-delay: 0.3s;
+}
+
+/* Light Mode Cloud Puffs */
+.cosmic-toggle-clouds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.cosmic-toggle-switch.is-dark .cosmic-toggle-clouds {
+  opacity: 0;
+}
+
+.cosmic-toggle-switch.is-light .cosmic-toggle-clouds {
+  opacity: 1;
+}
+
+.cosmic-toggle-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+}
+
+.cosmic-toggle-cloud.c1 {
+  width: 14px;
+  height: 5px;
+  bottom: 6px;
+  right: 8px;
+}
+
+.cosmic-toggle-cloud.c2 {
+  width: 10px;
+  height: 4px;
+  top: 7px;
+  right: 14px;
+}
+
+@keyframes cosmicStarPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}

@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #080706;
+    --bg-primary: #0D0A08;
+    --bg-secondary: #120D0A;
+    --bg-panel: #18100C;
+    --bg-card: #100B08;
+    --border-subtle: rgba(234, 145, 98, 0.20);
+    --border-accent: rgba(234, 145, 98, 0.35);
+    --border-hover: rgba(234, 145, 98, 0.50);
+    --accent-main: #EA9162;
+    --accent-light: #F2B08E;
+    --accent-highlight: #FFD2BE;
+    --text-pure: #FFFFFF;
+    --text-primary: #F5EDE8;
+    --text-secondary: #C7B8B0;
+    --text-muted: #9F8D84;
+    --glow-subtle: rgba(234, 145, 98, 0.15);
+    --glow-medium: rgba(234, 145, 98, 0.25);
+    --glow-strong: rgba(234, 145, 98, 0.40);
+  }
+
+  html.light, :root[data-theme="light"] {
+    --bg-void: #F7F1ED;
+    --bg-primary: #FFF9F5;
+    --bg-secondary: #EFE4DD;
+    --bg-panel: #FFFFFF;
+    --bg-card: #FFF7F2;
+    --border-subtle: rgba(201, 111, 69, 0.20);
+    --border-accent: rgba(201, 111, 69, 0.35);
+    --border-hover: rgba(201, 111, 69, 0.50);
+    --accent-main: #C96F45;
+    --accent-light: #EA9162;
+    --accent-highlight: #A8522A;
+    --text-pure: #241B17;
+    --text-primary: #3A2D27;
+    --text-secondary: #6F5E55;
+    --text-muted: #8C7B72;
+    --glow-subtle: rgba(201, 111, 69, 0.15);
+    --glow-medium: rgba(201, 111, 69, 0.25);
+    --glow-strong: rgba(201, 111, 69, 0.40);
+  }
+
+  body {
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+/* Custom scrollbars for scientific panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080706;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(234, 145, 98, 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EA9162;
+}
+
+/* --- Warm Stellar Galaxy & Shooting Star Keyframes for CosmicButton --- */
+
+@keyframes cosmicGalaxyRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.15);
+    opacity: 0.85;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes shootingStarTravel {
+  0% {
+    transform: translateX(-120%) translateY(-30%) rotate(-25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(280%) translateY(70%) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes starTwinkleSubtle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes stellarAuraPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(234, 145, 98, 0.25), 0 0 50px rgba(242, 176, 142, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(234, 145, 98, 0.45), 0 0 80px rgba(242, 176, 142, 0.25);
+  }
+}
+
+/* --- Global Light Mode Overrides for Deep Space Warm Palette --- */
+html.light body {
+  background-color: #F7F1ED !important;
+  color: #3A2D27 !important;
+}
+
+html.light header {
+  background-color: rgba(255, 249, 245, 0.94) !important;
+  border-color: rgba(201, 111, 69, 0.20) !important;
+}
+
+html.light footer {
+  background-color: #FFF9F5 !important;
+  border-color: rgba(201, 111, 69, 0.20) !important;
+}
+
+html.light .bg-\[\#080706\] {
+  background-color: #F7F1ED !important;
+}
+
+html.light .bg-\[\#0D0A08\] {
+  background-color: #FFF9F5 !important;
+}
+
+html.light .bg-\[\#120D0A\] {
+  background-color: #EFE4DD !important;
+}
+
+html.light .bg-\[\#18100C\] {
+  background-color: #FFF7F2 !important;
+}
+
+html.light .bg-\[\#100B08\] {
+  background-color: #FFFFFF !important;
+}
+
+html.light .text-\[\#FFFFFF\] {
+  color: #241B17 !important;
+}
+
+html.light .text-\[\#F5EDE8\] {
+  color: #3A2D27 !important;
+}
+
+html.light .text-\[\#C7B8B0\] {
+  color: #6F5E55 !important;
+}
+
+html.light .text-\[\#9F8D84\] {
+  color: #8C7B72 !important;
+}
+
+html.light .text-\[\#EA9162\] {
+  color: #C96F45 !important;
+}
+
+html.light .border-\[rgba\(234\,145\,98\,0\.20\)\] {
+  border-color: rgba(201, 111, 69, 0.20) !important;
+}
+
+html.light .border-\[rgba\(234\,145\,98\,0\.22\)\] {
+  border-color: rgba(201, 111, 69, 0.22) !important;
+}
+
+html.light .border-\[rgba\(234\,145\,98\,0\.25\)\] {
+  border-color: rgba(201, 111, 69, 0.25) !important;
+}
+
+html.light .border-\[rgba\(234\,145\,98\,0\.30\)\] {
+  border-color: rgba(201, 111, 69, 0.30) !important;
+}
+
+html.light .border-\[rgba\(234\,145\,98\,0\.35\)\] {
+  border-color: rgba(201, 111, 69, 0.35) !important;
+}
+
+/* --- Hero Video Styles --- */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
